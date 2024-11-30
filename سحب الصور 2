@@ -1,0 +1,15 @@
+import os
+import requests
+
+def download_image(image_url, save_dir):
+    try:
+        # Get the image name from the URL
+        image_name = image_url.split("/")[-1]
+        save_path = os.path.join(save_dir, image_name)
+        
+        # Send a GET request to download the image
+        response = requests.get(image_url, stream=True)
+        response.raise_for_status()
+        
+        # Save the image to the specified path
+        with open(save_path
